@@ -1,13 +1,8 @@
-import 'package:animated_splash_screen/animated_splash_screen.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
-import 'package:go_router/go_router.dart';
-import 'package:lottie/lottie.dart';
+
 import 'package:myshop/Features/DialogLogin/Presentation/dialog.dart';
-import 'package:myshop/Features/Students/LoginStudent/Presentation/Views/loginPageStudent.dart';
+
 import 'package:myshop/constant.dart';
-import 'package:myshop/core/Utils/app_router.dart';
 
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
@@ -31,27 +26,20 @@ class _SplashViewBodyState extends State<SplashViewBody>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: KPrimeryColor2,
+        backgroundColor: Colors.purple.shade50,
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            AspectRatio(
-              aspectRatio: 2,
-              child: Lottie.asset(
-                'assets/lottie/SplashLogo.json',
-                animate: true,
-              ),
-            ),
             AnimatedBuilder(
                 animation: SlidingAnimation,
                 builder: (context, _) {
                   return SlideTransition(
                     position: SlidingAnimation,
                     child: AspectRatio(
-                        aspectRatio: 1.6,
-                        child: Image.asset('assets/images/schoolify.png')),
+                        aspectRatio: 1,
+                        child: Image.asset('assets/images/logoo2.png')),
                   );
-                })
+                }),
           ],
         ));
   }
@@ -75,4 +63,3 @@ class _SplashViewBodyState extends State<SplashViewBody>
     });
   }
 }
-//  GoRouter.of(context).push(AppRouter.KLoginPage);

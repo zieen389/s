@@ -10,7 +10,9 @@ class LikedButtonCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(right: 270, top: 7),
+      padding: EdgeInsets.only(
+          right: MediaQuery.of(context).size.width * .55,
+          top: MediaQuery.of(context).size.height * .015),
       child: LikeButton(
         onTap: (isLiked) {
           likeCount = isLiked ? likeCount - 1 : likeCount + 1;
@@ -19,7 +21,7 @@ class LikedButtonCustom extends StatelessWidget {
         },
         likeBuilder: (isLiked) {
           return Icon(
-            size: 32,
+            size: MediaQuery.of(context).size.aspectRatio * 60,
             isLiked ? Icons.favorite : Icons.favorite_border_outlined,
             color: isLiked ? Colors.red : Colors.grey.withOpacity(0.9),
           );
@@ -29,7 +31,7 @@ class LikedButtonCustom extends StatelessWidget {
           return Text(
             '   $count ${AppLocalizations.of(context)!.like}',
             style: TextStyle(
-              fontSize: 18,
+              fontSize: MediaQuery.of(context).size.aspectRatio * 40,
               fontWeight: FontWeight.bold,
               color: Colors.grey.shade600,
             ),

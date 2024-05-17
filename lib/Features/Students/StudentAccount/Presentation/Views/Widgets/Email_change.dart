@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:myshop/Features/Students/LoginStudent/Presentation/Views/Widgets/button_Widget.dart';
 import 'package:myshop/Features/Students/forget_Password/Prsesnation/Views/widgets/verification_code.dart';
 import 'package:myshop/constant.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:myshop/core/Utils/app_router.dart';
 
 class EmailChange extends StatefulWidget {
@@ -18,60 +19,80 @@ class _EmailChangeState extends State<EmailChange> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: KPrimeryColor2,
+      backgroundColor: KPrimeryColor5,
       body: Form(
         key: _keyform,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 56,
-            ),
-            Text(
-              'هل تريد تغيير البريد الإلكتروني الخاص بك ؟  ',
-              style: TextStyle(
-                  fontSize: 25,
-                  fontFamily: KFont2,
-                  color: KPrimeryColor1,
-                  fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: 12,
-            ),
-            Text(
-              'قم بإدخال البريد الالكتروني الجديد,ثم قم بوضع الرمز المؤلف من 5 أرقام الذي سنقوم بإرساله على البريد الجديد     ',
-              textAlign: TextAlign.end,
-              style: TextStyle(
-                  fontSize: 18, fontFamily: KFont2, color: Colors.black54),
-            ),
-            SizedBox(
-              height: 56,
+              height: MediaQuery.of(context).size.height * .07,
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
+              padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * .03),
+              child: Text(
+                AppLocalizations.of(context)!.changeEmail,
+                style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.aspectRatio * 55,
+                    color: KPrimeryColor1,
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * .02,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: MediaQuery.of(context).size.width * .02,
+              ),
+              child: Text(
+                AppLocalizations.of(context)!.inputEmail,
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.aspectRatio * 40,
+                    letterSpacing: MediaQuery.of(context).size.width * .002,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black38),
+              ),
+            ),
+            SizedBox(
+              height: MediaQuery.of(context).size.height * .05,
+            ),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                horizontal: MediaQuery.of(context).size.width * .03,
+              ),
               child: TextFormField(
-                  textAlign: TextAlign.end,
-                  // obscureText:obscureText!,
+                  cursorHeight: MediaQuery.of(context).size.height * .03,
+                  cursorColor: KPrimeryColor1,
+                  style: TextStyle(
+                      decoration: TextDecoration.none,
+                      decorationThickness: 0,
+                      fontSize: MediaQuery.of(context).size.aspectRatio * 50,
+                      color: Colors.black54),
+                  textAlign: TextAlign.start,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
-                      return 'الرجاء إدخال البريد الإلكتروني';
+                      return AppLocalizations.of(context)!.errorEmail1;
                     } else if (value.isNotEmpty && !value.contains('@')) {
-                      return '@ يجب ان يحتوي البريد الإلكتروني على';
+                      return AppLocalizations.of(context)!.errorEmail2;
                     }
                   },
                   // onChanged: onChanged,
                   decoration: InputDecoration(
                     errorStyle: TextStyle(
-                      fontSize: 18,
-                      fontFamily: KFont2,
+                      fontSize: MediaQuery.of(context).size.aspectRatio * 30,
+                      letterSpacing: MediaQuery.of(context).size.width * .002,
                     ),
-                    suffixIcon: Icon(Icons.email),
-                    suffixIconColor: Colors.grey,
-                    hintText: 'عنوان البريد الإلكتروني',
-                    hintStyle: const TextStyle(
-                        fontSize: 22,
-                        fontFamily: KFont2,
-                        color: Colors.black54),
+                    prefixIcon: Icon(Icons.email_outlined),
+                    prefixIconColor: Colors.grey,
+                    hintText: AppLocalizations.of(context)!.emailAdress,
+                    hintStyle: TextStyle(
+                        letterSpacing: MediaQuery.of(context).size.width * .002,
+                        fontSize: MediaQuery.of(context).size.aspectRatio * 40,
+                        fontWeight: FontWeight.w600,
+                        color: Colors.black38),
                     focusedBorder: OutlineInputBorder(
                         borderSide:
                             const BorderSide(color: KPrimeryColor1, width: 1),
@@ -83,7 +104,7 @@ class _EmailChangeState extends State<EmailChange> {
                   )),
             ),
             SizedBox(
-              height: 80,
+              height: MediaQuery.of(context).size.height * .1,
             ),
             Center(
               child: CustomButon(
@@ -92,8 +113,8 @@ class _EmailChangeState extends State<EmailChange> {
                     GoRouter.of(context).push(AppRouter.KchangeCode);
                   }
                 },
-                text: 'المتابعة',
-                fontSz: 24,
+                text: AppLocalizations.of(context)!.continu,
+                fontSz: MediaQuery.of(context).size.aspectRatio * 50,
                 colorfont: KPrimeryColor2,
               ),
             )
@@ -110,30 +131,34 @@ class Code_page_change extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: KPrimeryColor2,
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           //Lottie.asset('assets/lottie/Animation - 1711153910692.json')
           Padding(
-            padding: const EdgeInsets.only(top: 150),
-            child: Text(' : قم بوضع الرمز ',
+            padding: EdgeInsets.only(
+              top: MediaQuery.of(context).size.height * .2,
+            ),
+            child: Text(AppLocalizations.of(context)!.putDigit,
                 style: TextStyle(
-                    fontSize: 28,
-                    fontFamily: KFont2,
+                    fontSize: MediaQuery.of(context).size.aspectRatio * 55,
                     color: KPrimeryColor1,
                     fontWeight: FontWeight.bold)),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 40),
+            padding: EdgeInsets.only(
+              top: MediaQuery.of(context).size.height * .05,
+            ),
             child: Center(child: verificationcode()),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 100),
+            padding: EdgeInsets.only(
+              top: MediaQuery.of(context).size.height * .03,
+            ),
             child: Center(
               child: CustomButon(
-                text: 'التأكيد',
-                fontSz: 24,
+                text: 'التاكيد',
+                fontSz: MediaQuery.of(context).size.aspectRatio * 50,
                 colorfont: KPrimeryColor2,
                 onTap: () {
                   GoRouter.of(context).pop(context);

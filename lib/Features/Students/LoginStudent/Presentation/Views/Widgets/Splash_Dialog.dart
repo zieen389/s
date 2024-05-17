@@ -31,25 +31,29 @@ class _SplashViewBodyState extends State<SplashDialog>
   @override
   Widget build(BuildContext context) {
     return Dialog(
-        backgroundColor: KPrimeryColor2,
+        backgroundColor: KPrimeryColor5,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
         child: Container(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(
-                height: 45,
+                height: MediaQuery.of(context).size.height * .05,
               ),
               AspectRatio(
                   aspectRatio: 2.9,
                   child: Lottie.asset(
                       'assets/lottie/lottieflow-checkbox-04-20BF55-easey.json')),
-              SizedBox(height: 35),
-              Text(
-                AppLocalizations.of(context)!.sucssLogin,
-                style: TextStyle(
-                    fontSize: 28,
-                    fontFamily: 'Harmattan',
-                    color: KPrimeryColor3),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * .07,
+              ),
+              Center(
+                child: Text(
+                  AppLocalizations.of(context)!.sucssLogin,
+                  style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.aspectRatio * 50,
+                      color: Colors.black54),
+                ),
               )
             ],
           ),

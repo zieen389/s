@@ -9,16 +9,15 @@ class AdChat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: KPrimeryColor2,
+        backgroundColor: KPrimeryColor5,
         appBar: AppBar(
           title: Center(
               child: Text(
             AppLocalizations.of(context)!.adv,
             style: TextStyle(
-                fontFamily: KFont2,
                 fontWeight: FontWeight.bold,
-                fontSize: 24,
-                color: KPrimeryColor2),
+                fontSize: MediaQuery.of(context).size.aspectRatio * 50,
+                color: KPrimeryColor5),
           )),
           elevation: 0,
           automaticallyImplyLeading: false,
@@ -31,19 +30,21 @@ class AdChat extends StatelessWidget {
             }),
           ),
           Padding(
-            padding: EdgeInsets.only(top: 4, bottom: 3),
+            padding: EdgeInsets.only(
+              top: MediaQuery.of(context).size.height * .02,
+              bottom: MediaQuery.of(context).size.height * .02,
+            ),
             child: SizedBox(
               height: MediaQuery.of(context).size.height * .04,
               width: MediaQuery.of(context).size.width * .95,
               child: Container(
-                color: KPrimeryColor2,
+                color: KPrimeryColor5,
                 child: Text(
                   AppLocalizations.of(context)!.apply,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontFamily: KFont2,
-                      fontWeight: FontWeight.w500,
-                      fontSize: 15,
+                      fontWeight: FontWeight.w600,
+                      fontSize: MediaQuery.of(context).size.aspectRatio * 35,
                       color: KPrimeryColor1),
                 ),
               ),

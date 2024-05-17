@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:myshop/Features/Page_view/Prsesnation/Views/PageBody.dart';
 import 'package:myshop/Features/Students/Chat/Prsesnation/Views/widgets/Ad_chatST.dart';
 import 'package:myshop/Features/Students/Chat/Prsesnation/Views/widgets/chat.dart';
 import 'package:myshop/Features/Students/HomeStudent/Presentation/Views/HomeStudentPage.dart';
@@ -36,8 +37,10 @@ abstract class AppRouter {
   static const KinfoStu = '/Info_student';
   static const Kaddstudent = '/add';
   static const Klanguage = '/LanguageView';
+  static const Kpageview = '/Page_View';
   static final router = GoRouter(routes: [
-    GoRoute(path: '/', builder: (context, state) => const SplashView()),
+    GoRoute(path: '/', builder: (context, state) => const Page_View()),
+    GoRoute(path: KSplashPage, builder: (context, state) => const SplashView()),
     GoRoute(
         path: KStudentLoginPage,
         builder: (context, state) => const StudentloginView()),
@@ -98,6 +101,10 @@ abstract class AppRouter {
     GoRoute(
       path: Klanguage,
       builder: (context, state) => const LanguageView(),
+    ),
+    GoRoute(
+      path: Kpageview,
+      builder: (context, state) => const Page_View(),
     ),
   ]);
 }

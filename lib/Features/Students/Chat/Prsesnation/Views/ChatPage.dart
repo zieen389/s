@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gradient_app_bar/flutter_gradient_app_bar.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myshop/Features/Students/Chat/Prsesnation/Views/widgets/chatBubble.dart';
 import 'package:myshop/Features/Students/Chat/Prsesnation/Views/widgets/containerChat.dart';
@@ -12,18 +13,27 @@ class ChatViwe extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: KPrimeryColor2,
-      appBar: AppBar(
+      backgroundColor: KPrimeryColor5,
+      appBar: GradientAppBar(
+        gradient: LinearGradient(
+          begin: Alignment.topLeft,
+          colors: [
+            //KPrimeryColor2,
+            Color(0xFFCD6FD0),
+            Color(0xFF9B71D2),
+            Color(0xFF9B71D2),
+            // Color(0xFF703EA9),
+            Color(0xFFCD6FD0),
+          ],
+        ),
         title: Center(
             child: Text(
           AppLocalizations.of(context)!.chat,
           style: TextStyle(
-              fontFamily: KFont2,
               fontWeight: FontWeight.bold,
-              fontSize: 24,
-              color: KPrimeryColor2),
+              fontSize: MediaQuery.of(context).size.aspectRatio * 50,
+              color: KPrimeryColor5),
         )),
-        backgroundColor: KPrimeryColor1,
         automaticallyImplyLeading: false,
         elevation: 0,
       ),
@@ -41,24 +51,26 @@ class ChatViwe extends StatelessWidget {
           //   height: MediaQuery.of(context).size.height * .025,
           // ),
           // Divider(
-          //   thickness: 1,
-          //   endIndent: 60,
+          //   color: KPrimeryColor4,
+          //   indent: MediaQuery.of(context).size.height * .05,
+          //   thickness: MediaQuery.of(context).size.aspectRatio * 1.5,
           // ),
           Container_chat(
             image: AssetImage('assets/images/ad.png'),
-            color: Color(0xFFF98222),
+            color: KPrimeryColor1,
             text: AppLocalizations.of(context)!.adv,
             ontap: () {
               GoRouter.of(context).push(AppRouter.KAdchat);
             },
           ),
-          // SizedBox(
-          //   height: MediaQuery.of(context).size.height * .025,
-          // ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * .01,
+          ),
           Divider(
-            thickness: 1,
-            endIndent: 60,
-          )
+            color: KPrimeryColor4,
+            indent: MediaQuery.of(context).size.height * .05,
+            thickness: MediaQuery.of(context).size.aspectRatio * 1.5,
+          ),
         ],
       ),
     );

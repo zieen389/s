@@ -20,17 +20,16 @@ class CustomButon extends StatelessWidget {
       onTap: onTap,
       child: Container(
         decoration: BoxDecoration(
-          color: KPrimeryColor3,
+          color: KPrimeryColor1,
           borderRadius: BorderRadius.circular(30),
         ),
-        width: 250,
-        height: 60,
+        width: MediaQuery.of(context).size.width * .5,
+        height: MediaQuery.of(context).size.height * .07,
         child: Center(
           child: Text(
             text,
             style: TextStyle(
                 fontSize: fontSz,
-                fontFamily: KFont2,
                 color: colorfont,
                 fontWeight: FontWeight.w500),
           ),

@@ -4,6 +4,7 @@ import 'package:myshop/constant.dart';
 import 'package:myshop/core/Utils/app_router.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:myshop/main.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LanguageView extends StatefulWidget {
   const LanguageView({
@@ -18,7 +19,7 @@ class _LanguageViewState extends State<LanguageView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: KPrimeryColor2,
+      backgroundColor: KPrimeryColor5,
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
@@ -27,62 +28,66 @@ class _LanguageViewState extends State<LanguageView> {
           icon: Icon(
             Icons.arrow_back_outlined,
             color: KPrimeryColor1,
-            size: 28,
+            size: MediaQuery.of(context).size.aspectRatio * 60,
           ),
         ),
-        backgroundColor: KPrimeryColor2,
+        backgroundColor: KPrimeryColor5,
         automaticallyImplyLeading: false,
         elevation: 0,
         centerTitle: true,
         title: Text(
-          'اللغة',
+          AppLocalizations.of(context)!.lang,
           style: TextStyle(
               color: KPrimeryColor1,
               fontWeight: FontWeight.bold,
-              fontFamily: KFont2,
-              fontSize: 24,
-              letterSpacing: 1),
+              fontSize: MediaQuery.of(context).size.aspectRatio * 55,
+              letterSpacing: MediaQuery.of(context).size.width * .002),
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(right: 12),
+        padding: EdgeInsets.only(
+            right: MediaQuery.of(context).size.width * .05,
+            left: MediaQuery.of(context).size.width * .05),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 20,
+              height: MediaQuery.of(context).size.height * .04,
             ),
             Text(
-              'قم باختيار اللغة المناسبة لك',
+              AppLocalizations.of(context)!.changelang,
               style: TextStyle(
-                  fontSize: 25,
-                  fontFamily: KFont2,
+                  fontSize: MediaQuery.of(context).size.aspectRatio * 50,
                   color: KPrimeryColor1,
                   fontWeight: FontWeight.bold),
             ),
             SizedBox(
-              height: 12,
+              height: MediaQuery.of(context).size.height * .04,
             ),
             textWidget(
-              lang: 'العربية',
+              lang: AppLocalizations.of(context)!.arabic,
               ontap: () {},
               image: 'assets/images/syria.png',
             ),
             Divider(
-              color: Colors.grey,
-              thickness: 0.7,
+              color: KPrimeryColor4,
+              indent: MediaQuery.of(context).size.height * .01,
+              // endIndent: MediaQuery.of(context).size.height * .00003,
+              thickness: MediaQuery.of(context).size.aspectRatio * 1.8,
             ),
             SizedBox(
-              height: 12,
+              height: MediaQuery.of(context).size.height * .02,
             ),
             textWidget(
-              lang: 'الإنكليزية',
+              lang: AppLocalizations.of(context)!.english,
               ontap: () {},
               image: 'assets/images/britain.png',
             ),
             Divider(
-              color: Colors.grey,
-              thickness: 0.7,
+              color: KPrimeryColor4,
+              indent: MediaQuery.of(context).size.height * .01,
+              // endIndent: MediaQuery.of(context).size.height * .00003,
+              thickness: MediaQuery.of(context).size.aspectRatio * 1.8,
             ),
           ],
         ),
@@ -101,23 +106,22 @@ class textWidget extends StatelessWidget {
     return GestureDetector(
       onDoubleTap: ontap,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Text(
-            '$lang',
-            style: TextStyle(
-                fontSize: 25,
-                fontFamily: KFont2,
-                color: Colors.black45,
-                fontWeight: FontWeight.bold),
+          Image.asset(
+            '$image',
+            height: MediaQuery.of(context).size.height * .04,
           ),
           SizedBox(
             width: MediaQuery.of(context).size.width * .05,
           ),
-          Image.asset(
-            '$image',
-            height: MediaQuery.of(context).size.height * .04,
-          )
+          Text(
+            '$lang',
+            style: TextStyle(
+                fontSize: MediaQuery.of(context).size.aspectRatio * 45,
+                color: Colors.black45,
+                fontWeight: FontWeight.bold),
+          ),
         ],
       ),
     );

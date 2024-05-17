@@ -23,34 +23,51 @@ class _ContainerCustomLogState extends State<ContainerCustomLog> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: MediaQuery.of(context).size.height * .564,
+      height: MediaQuery.of(context).size.height * .65,
       decoration: BoxDecoration(
-          color: KPrimeryColor2,
+          color: KPrimeryColor5,
           borderRadius: BorderRadius.only(
               topLeft: Radius.circular(75), topRight: Radius.circular(75))),
-      child: SingleChildScrollView(
-        child: Form(
+      child: Form(
           key: _keyform,
-          child: Column(
+          child: ListView(
             children: [
               Padding(
-                  padding: const EdgeInsets.only(top: 70, left: 20, right: 20),
+                  padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * .1,
+                    left: MediaQuery.of(context).size.width * .06,
+                    right: MediaQuery.of(context).size.width * .06,
+                  ),
                   child: TextFormField(
-                      textAlign: TextAlign.end,
+                      cursorHeight: MediaQuery.of(context).size.height * .03,
+                      cursorColor: KPrimeryColor1,
+                      style: TextStyle(
+                          decoration: TextDecoration.none,
+                          decorationThickness: 0,
+                          fontSize:
+                              MediaQuery.of(context).size.aspectRatio * 50,
+                          color: Colors.black54),
+                      textAlign: TextAlign.start,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return AppLocalizations.of(context)!.errorusername;
+                        } else if (value.contains(RegExp(r'[0-9]'))) {
+                          return AppLocalizations.of(context)!.errorusername2;
                         }
                       },
                       decoration: InputDecoration(
-                        suffixIcon: Icon(Icons.person),
-                        suffixIconColor: Colors.grey,
+                        prefixIcon: Icon(Icons.person),
+                        prefixIconColor: Colors.grey,
                         hintText: AppLocalizations.of(context)!.username,
-                        hintStyle:
-                            const TextStyle(fontSize: 22, fontFamily: KFont2),
+                        hintStyle: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black45,
+                          fontSize:
+                              MediaQuery.of(context).size.aspectRatio * 36,
+                        ),
                         errorStyle: TextStyle(
-                          fontSize: 18,
-                          fontFamily: KFont2,
+                          fontSize:
+                              MediaQuery.of(context).size.aspectRatio * 30,
                         ),
                         focusedBorder: UnderlineInputBorder(
                           borderSide:
@@ -62,19 +79,31 @@ class _ContainerCustomLogState extends State<ContainerCustomLog> {
                         ),
                       ))),
               Padding(
-                  padding: const EdgeInsets.only(top: 50, left: 20, right: 20),
+                  padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * .08,
+                    left: MediaQuery.of(context).size.width * .06,
+                    right: MediaQuery.of(context).size.width * .06,
+                  ),
                   child: TextFormField(
+                      cursorHeight: MediaQuery.of(context).size.height * .03,
+                      cursorColor: KPrimeryColor1,
+                      style: TextStyle(
+                          decoration: TextDecoration.none,
+                          decorationThickness: 0,
+                          fontSize:
+                              MediaQuery.of(context).size.aspectRatio * 50,
+                          color: Colors.black54),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return AppLocalizations.of(context)!.errorpassword;
                         }
                       },
-                      textAlign: TextAlign.end,
+                      textAlign: TextAlign.start,
                       obscureText: _isObscure,
                       decoration: InputDecoration(
-                        suffixIcon: const Icon(Icons.password),
-                        suffixIconColor: Colors.grey,
-                        prefixIcon: IconButton(
+                        prefixIcon: const Icon(Icons.password),
+                        prefixIconColor: Colors.grey,
+                        suffixIcon: IconButton(
                             onPressed: () {
                               setState(() {
                                 _isObscure = !_isObscure;
@@ -85,10 +114,14 @@ class _ContainerCustomLogState extends State<ContainerCustomLog> {
                                   ? Icons.visibility_off
                                   : Icons.visibility,
                             )),
-                        prefixIconColor: KPrimeryColor1,
+                        suffixIconColor: KPrimeryColor1,
                         hintText: AppLocalizations.of(context)!.password,
-                        hintStyle:
-                            const TextStyle(fontSize: 20, fontFamily: KFont2),
+                        hintStyle: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black45,
+                          fontSize:
+                              MediaQuery.of(context).size.aspectRatio * 36,
+                        ),
                         focusedBorder: UnderlineInputBorder(
                           borderSide: const BorderSide(
                             width: 1,
@@ -96,8 +129,8 @@ class _ContainerCustomLogState extends State<ContainerCustomLog> {
                           ),
                         ),
                         errorStyle: TextStyle(
-                          fontSize: 18,
-                          fontFamily: KFont2,
+                          fontSize:
+                              MediaQuery.of(context).size.aspectRatio * 30,
                         ),
                         enabledBorder: UnderlineInputBorder(
                           borderSide: const BorderSide(
@@ -105,11 +138,15 @@ class _ContainerCustomLogState extends State<ContainerCustomLog> {
                         ),
                       ))),
               Padding(
-                padding: const EdgeInsets.only(top: 100),
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * .15,
+                  left: MediaQuery.of(context).size.width * .23,
+                  right: MediaQuery.of(context).size.width * .23,
+                ),
                 child: CustomButon(
                   text: AppLocalizations.of(context)!.login,
-                  fontSz: 24,
-                  colorfont: Colors.white,
+                  fontSz: MediaQuery.of(context).size.aspectRatio * 60,
+                  colorfont: KPrimeryColor3,
                   onTap: () {
                     if (_keyform.currentState!.validate()) {
                       showDialog(
@@ -121,20 +158,25 @@ class _ContainerCustomLogState extends State<ContainerCustomLog> {
                   },
                 ),
               ),
-              GestureDetector(
-                onTap: () {
-                  GoRouter.of(context).push(AppRouter.kForgetPassword);
-                },
-                child: Text(
-                  AppLocalizations.of(context)!.forgetpass,
-                  style: TextStyle(
-                      fontFamily: KFont2, fontSize: 18, color: KPrimeryColor1),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * .01,
+              ),
+              Center(
+                child: GestureDetector(
+                  onTap: () {
+                    GoRouter.of(context).push(AppRouter.kForgetPassword);
+                  },
+                  child: Text(
+                    AppLocalizations.of(context)!.forgetpass,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: MediaQuery.of(context).size.aspectRatio * 35,
+                        color: KPrimeryColor1),
+                  ),
                 ),
               )
             ],
-          ),
-        ),
-      ),
+          )),
     );
   }
 }

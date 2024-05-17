@@ -4,6 +4,7 @@ import 'package:myshop/Features/Students/StudentAccount/Presentation/Views/Widge
 import 'package:myshop/Features/Students/StudentAccount/Presentation/Views/Widgets/picharthodor.dart';
 import 'package:myshop/constant.dart';
 import 'package:myshop/core/Utils/app_router.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Info_student extends StatelessWidget {
   const Info_student({super.key});
@@ -11,7 +12,6 @@ class Info_student extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: KPrimeryColor2,
         appBar: AppBar(
           leading: IconButton(
             onPressed: () {
@@ -20,22 +20,19 @@ class Info_student extends StatelessWidget {
             icon: Icon(
               Icons.arrow_back_outlined,
               color: KPrimeryColor1,
-              size: 28,
+              size: MediaQuery.of(context).size.aspectRatio * 60,
             ),
           ),
-          backgroundColor: KPrimeryColor2,
+          backgroundColor: KPrimeryColor5,
           automaticallyImplyLeading: false,
           elevation: 0,
           centerTitle: true,
-          title: Text(
-            'المعلومات المدرسية',
-            style: TextStyle(
-                color: KPrimeryColor1,
-                fontWeight: FontWeight.bold,
-                fontFamily: KFont2,
-                fontSize: 24,
-                letterSpacing: 1),
-          ),
+          title: Text(AppLocalizations.of(context)!.schoolinfo,
+              style: TextStyle(
+                  color: KPrimeryColor1,
+                  fontWeight: FontWeight.bold,
+                  fontSize: MediaQuery.of(context).size.aspectRatio * 50,
+                  letterSpacing: MediaQuery.of(context).size.width * .002)),
         ),
         body: Column(children: [
           SizedBox(
@@ -47,40 +44,42 @@ class Info_student extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    'تاريخ الميلاد',
+                    AppLocalizations.of(context)!.name,
                     style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.grey.shade600,
-                        fontFamily: KFont2,
-                        fontSize: 20),
+                        fontWeight: FontWeight.w800,
+                        color: KPrimeryColor1,
+                        fontSize: MediaQuery.of(context).size.aspectRatio * 35),
                   ),
-                  Text(
-                    '9/4/2019',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black54,
-                        fontFamily: KFont,
-                        fontSize: 20),
-                  ),
-                ],
-              ),
-              Column(
-                children: [
-                  Text(
-                    'الاسم',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.grey.shade600,
-                        fontFamily: KFont2,
-                        fontSize: 20),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * .008,
                   ),
                   Text(
                     'تيم لاجين',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.black54,
-                        fontFamily: KFont2,
-                        fontSize: 20),
+                        color: Colors.black45,
+                        fontSize: MediaQuery.of(context).size.aspectRatio * 35),
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.date,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w800,
+                        color: KPrimeryColor1,
+                        fontSize: MediaQuery.of(context).size.aspectRatio * 35),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * .008,
+                  ),
+                  Text(
+                    '9/4/2019',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black45,
+                        fontSize: MediaQuery.of(context).size.aspectRatio * 35),
                   ),
                 ],
               ),
@@ -90,10 +89,10 @@ class Info_student extends StatelessWidget {
             height: MediaQuery.of(context).size.height * .01,
           ),
           Divider(
-            color: Colors.grey.shade900,
-            indent: 50,
-            endIndent: 50,
-            thickness: .7,
+            color: KPrimeryColor4,
+            indent: MediaQuery.of(context).size.height * .05,
+            endIndent: MediaQuery.of(context).size.height * .05,
+            thickness: MediaQuery.of(context).size.aspectRatio * 1.5,
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * .01,
@@ -104,40 +103,42 @@ class Info_student extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    'اسم الأم',
+                    AppLocalizations.of(context)!.fatherName,
                     style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.grey.shade600,
-                        fontFamily: KFont2,
-                        fontSize: 20),
+                        fontWeight: FontWeight.w800,
+                        color: KPrimeryColor1,
+                        fontSize: MediaQuery.of(context).size.aspectRatio * 35),
                   ),
-                  Text(
-                    'متيم مكي',
-                    style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black54,
-                        fontFamily: KFont2,
-                        fontSize: 20),
-                  ),
-                ],
-              ),
-              Column(
-                children: [
-                  Text(
-                    'اسم الأب',
-                    style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.grey.shade600,
-                        fontFamily: KFont2,
-                        fontSize: 20),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * .008,
                   ),
                   Text(
                     'إياد لاجين',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.black54,
-                        fontFamily: KFont2,
-                        fontSize: 20),
+                        color: Colors.black45,
+                        fontSize: MediaQuery.of(context).size.aspectRatio * 35),
+                  ),
+                ],
+              ),
+              Column(
+                children: [
+                  Text(
+                    AppLocalizations.of(context)!.motherName,
+                    style: TextStyle(
+                        fontWeight: FontWeight.w800,
+                        color: KPrimeryColor1,
+                        fontSize: MediaQuery.of(context).size.aspectRatio * 35),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * .008,
+                  ),
+                  Text(
+                    'متيم مكي',
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black45,
+                        fontSize: MediaQuery.of(context).size.aspectRatio * 35),
                   ),
                 ],
               ),
@@ -147,10 +148,10 @@ class Info_student extends StatelessWidget {
             height: MediaQuery.of(context).size.height * .01,
           ),
           Divider(
-            color: Colors.grey.shade900,
-            indent: 50,
-            endIndent: 50,
-            thickness: .7,
+            color: KPrimeryColor4,
+            indent: MediaQuery.of(context).size.height * .05,
+            endIndent: MediaQuery.of(context).size.height * .05,
+            thickness: MediaQuery.of(context).size.aspectRatio * 1.5,
           ),
           SizedBox(
             height: MediaQuery.of(context).size.height * .01,
@@ -161,40 +162,42 @@ class Info_student extends StatelessWidget {
               Column(
                 children: [
                   Text(
-                    'رقم الشعبة',
+                    AppLocalizations.of(context)!.academicyear,
                     style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.grey.shade600,
-                        fontFamily: KFont2,
-                        fontSize: 20),
+                        fontWeight: FontWeight.w800,
+                        color: KPrimeryColor1,
+                        fontSize: MediaQuery.of(context).size.aspectRatio * 35),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * .008,
                   ),
                   Text(
-                    '2',
+                    'الأول',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.black54,
-                        fontFamily: KFont,
-                        fontSize: 20),
+                        color: Colors.black45,
+                        fontSize: MediaQuery.of(context).size.aspectRatio * 35),
                   ),
                 ],
               ),
               Column(
                 children: [
                   Text(
-                    'السنة الدراسية',
+                    AppLocalizations.of(context)!.divisionNumber,
                     style: TextStyle(
-                        fontWeight: FontWeight.w500,
-                        color: Colors.grey.shade600,
-                        fontFamily: KFont2,
-                        fontSize: 20),
+                        fontWeight: FontWeight.w800,
+                        color: KPrimeryColor1,
+                        fontSize: MediaQuery.of(context).size.aspectRatio * 35),
+                  ),
+                  SizedBox(
+                    height: MediaQuery.of(context).size.height * .008,
                   ),
                   Text(
-                    'الأول',
+                    '2',
                     style: TextStyle(
                         fontWeight: FontWeight.bold,
-                        color: Colors.black54,
-                        fontFamily: KFont2,
-                        fontSize: 20),
+                        color: Colors.black45,
+                        fontSize: MediaQuery.of(context).size.aspectRatio * 35),
                   ),
                 ],
               ),

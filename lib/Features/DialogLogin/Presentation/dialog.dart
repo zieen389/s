@@ -14,7 +14,7 @@ class DialogCustom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Dialog(
-        backgroundColor: KPrimeryColor2,
+        backgroundColor: KPrimeryColor5,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
         child: Container(
           height: MediaQuery.of(context).size.height * .32,
@@ -22,64 +22,73 @@ class DialogCustom extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 170, top: 15),
-                child: Text(
-                  AppLocalizations.of(context)!.logintype,
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontFamily: 'Harmattan',
-                    color: KPrimeryColor1,
+                padding: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * .02,
+                ),
+                child: Center(
+                  child: Text(
+                    AppLocalizations.of(context)!.logintype,
+                    style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.aspectRatio * 50,
+                      color: KPrimeryColor1,
+                    ),
                   ),
                 ),
               ),
               SizedBox(
-                height: MediaQuery.of(context).size.height * .05,
+                height: MediaQuery.of(context).size.height * .06,
               ),
               Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                CircleImageCustom(
-                  ontap: () {
-                    GoRouter.of(context).push(AppRouter.KStudentLoginPage);
-                  },
-                  image: AssetImage('assets/images/Students.png'),
+                Column(
+                  children: [
+                    CircleImageCustom(
+                      ontap: () {
+                        GoRouter.of(context).push(AppRouter.KStudentLoginPage);
+                      },
+                      image: AssetImage('assets/images/Students.png'),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context)!.size.height * .01,
+                    ),
+                    Text(
+                      AppLocalizations.of(context)!.student,
+                      style: TextStyle(
+                        letterSpacing:
+                            MediaQuery.of(context).size.aspectRatio * .002,
+                        fontSize: MediaQuery.of(context).size.aspectRatio * 35,
+                        color: KPrimeryColor1,
+                      ),
+                    ),
+                  ],
                 ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * .2,
                 ),
-                CircleImageCustom(
-                  ontap: () {},
-                  // ontap: () {
-                  //   GoRouter.of(context).push(AppRouter.KParentsLoginpage);
-                  // },
-                  image: AssetImage('assets/images/family.png'),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    CircleImageCustom(
+                      ontap: () {},
+                      // ontap: () {
+                      //   GoRouter.of(context).push(AppRouter.KParentsLoginpage);
+                      // },
+                      image: AssetImage('assets/images/family.png'),
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context)!.size.height * .01,
+                    ),
+                    Text(
+                      AppLocalizations.of(context)!.parents,
+                      style: TextStyle(
+                        letterSpacing:
+                            MediaQuery.of(context).size.aspectRatio * .002,
+                        fontSize: MediaQuery.of(context).size.aspectRatio * 35,
+                        color: KPrimeryColor1,
+                      ),
+                    ),
+                  ],
                 ),
               ]),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * .01,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    AppLocalizations.of(context)!.student,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontFamily: 'Harmattan',
-                      color: KPrimeryColor1,
-                    ),
-                  ),
-                  SizedBox(
-                    width: MediaQuery.of(context).size.width * .3,
-                  ),
-                  Text(
-                    AppLocalizations.of(context)!.parents,
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontFamily: 'Harmattan',
-                      color: KPrimeryColor1,
-                    ),
-                  ),
-                ],
-              )
             ],
           ),
         ));

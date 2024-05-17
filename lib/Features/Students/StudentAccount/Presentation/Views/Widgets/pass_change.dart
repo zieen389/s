@@ -4,6 +4,7 @@ import 'package:myshop/Features/Students/LoginStudent/Presentation/Views/Widgets
 import 'package:myshop/Features/Students/forget_Password/Prsesnation/Views/widgets/verification_code.dart';
 import 'package:myshop/constant.dart';
 import 'package:myshop/core/Utils/app_router.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class PassChange extends StatefulWidget {
   const PassChange({super.key});
@@ -19,48 +20,55 @@ class _PassChangeState extends State<PassChange> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: KPrimeryColor2,
       body: Form(
         key: _keyform,
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.end,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: MediaQuery.of(context).size.height * .08,
+              height: MediaQuery.of(context).size.height * .07,
             ),
-            Text(
-              'هل تريد تغيير كلمة السر لهذا الحساب؟  ',
-              style: TextStyle(
-                  fontSize: 25,
-                  fontFamily: KFont2,
-                  color: KPrimeryColor1,
-                  fontWeight: FontWeight.bold),
+            Padding(
+              padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * .03),
+              child: Text(
+                AppLocalizations.of(context)!.changePass,
+                style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.aspectRatio * 53,
+                    color: KPrimeryColor1,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height * .02,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 60, right: 12, top: 18),
+              padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * .1,
+                right: MediaQuery.of(context).size.width * .1,
+                top: MediaQuery.of(context).size.height * .02,
+              ),
               child: SizedBox(
                 height: MediaQuery.of(context).size.height * .07,
                 child: TextFormField(
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'الرجاء تعبئة هذا الحقل';
+                        return AppLocalizations.of(context)!.errorchangepass1;
                       }
                       password = value;
                     },
                     style: TextStyle(
-                        fontSize: 22, fontFamily: KFont, color: Colors.black54),
+                        fontSize: MediaQuery.of(context).size.aspectRatio * 40,
+                        color: Colors.black54),
                     cursorColor: Colors.grey,
-                    textAlign: TextAlign.end,
+                    // textAlign: TextAlign.start,
                     decoration: InputDecoration(
-                        suffixIcon: Icon(Icons.password),
-                        suffixIconColor: Colors.grey,
-                        hintText: 'كلمة السر الجديدة',
-                        hintStyle: const TextStyle(
-                            fontSize: 20,
-                            fontFamily: KFont2,
+                        prefixIcon: Icon(Icons.password),
+                        prefixIconColor: Colors.grey,
+                        hintText: AppLocalizations.of(context)!.newPass,
+                        hintStyle: TextStyle(
+                            fontSize:
+                                MediaQuery.of(context).size.aspectRatio * 40,
                             color: Colors.black54),
                         focusedBorder: OutlineInputBorder(
                             borderSide: const BorderSide(
@@ -71,8 +79,8 @@ class _PassChangeState extends State<PassChange> {
                                 color: Colors.grey, width: 1.2),
                             borderRadius: BorderRadius.circular(12)),
                         errorStyle: TextStyle(
-                          fontSize: 16,
-                          fontFamily: KFont2,
+                          fontSize:
+                              MediaQuery.of(context).size.aspectRatio * 35,
                         ))),
               ),
             ),
@@ -80,30 +88,34 @@ class _PassChangeState extends State<PassChange> {
               height: MediaQuery.of(context).size.height * .02,
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 60, right: 12, top: 18),
+              padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * .1,
+                right: MediaQuery.of(context).size.width * .1,
+                top: MediaQuery.of(context).size.height * .02,
+              ),
               child: SizedBox(
                 height: MediaQuery.of(context).size.height * .07,
                 child: TextFormField(
                     validator: (value) {
                       if (value == null || value.isEmpty) {
-                        return 'الرجاء تعبئة هذا الحقل';
+                        return AppLocalizations.of(context)!.errorchangepass1;
                       }
                       confirmPassword = value;
                       if (password != confirmPassword) {
-                        return 'لايوجد تطابق';
+                        return AppLocalizations.of(context)!.errorchangepass2;
                       }
                     },
                     style: TextStyle(
-                        fontSize: 22, fontFamily: KFont, color: Colors.black54),
+                        fontSize: MediaQuery.of(context).size.aspectRatio * 40,
+                        color: Colors.black54),
                     cursorColor: Colors.grey,
-                    textAlign: TextAlign.end,
                     decoration: InputDecoration(
-                      suffixIcon: Icon(Icons.password),
-                      suffixIconColor: Colors.grey,
-                      hintText: 'قم بإعادة كتابة كلمة السر الجديدة',
-                      hintStyle: const TextStyle(
-                          fontSize: 20,
-                          fontFamily: KFont2,
+                      prefixIcon: Icon(Icons.password),
+                      prefixIconColor: Colors.grey,
+                      hintText: AppLocalizations.of(context)!.renewpass,
+                      hintStyle: TextStyle(
+                          fontSize:
+                              MediaQuery.of(context).size.aspectRatio * 40,
                           color: Colors.black54),
                       focusedBorder: OutlineInputBorder(
                           borderSide:
@@ -114,8 +126,7 @@ class _PassChangeState extends State<PassChange> {
                               const BorderSide(color: Colors.grey, width: 1.2),
                           borderRadius: BorderRadius.circular(12)),
                       errorStyle: TextStyle(
-                        fontSize: 18,
-                        fontFamily: KFont2,
+                        fontSize: MediaQuery.of(context).size.aspectRatio * 35,
                       ),
                     )),
               ),
@@ -130,8 +141,8 @@ class _PassChangeState extends State<PassChange> {
                     GoRouter.of(context).pop(context);
                   }
                 },
-                text: 'تأكيد',
-                fontSz: 24,
+                text: AppLocalizations.of(context)!.coniform,
+                fontSz: MediaQuery.of(context).size.aspectRatio * 53,
                 colorfont: KPrimeryColor2,
               ),
             )

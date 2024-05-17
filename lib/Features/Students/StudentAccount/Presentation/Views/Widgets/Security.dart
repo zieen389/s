@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:myshop/constant.dart';
 import 'package:myshop/core/Utils/app_router.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Security_View extends StatelessWidget {
   const Security_View({super.key});
@@ -9,7 +10,6 @@ class Security_View extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: KPrimeryColor2,
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
@@ -18,27 +18,25 @@ class Security_View extends StatelessWidget {
           icon: Icon(
             Icons.arrow_back_outlined,
             color: KPrimeryColor1,
-            size: 28,
+            size: MediaQuery.of(context).size.aspectRatio * 60,
           ),
         ),
-        backgroundColor: KPrimeryColor2,
+        backgroundColor: KPrimeryColor5,
         automaticallyImplyLeading: false,
         elevation: 0,
         centerTitle: true,
-        title: Text(
-          'الأمان',
-          style: TextStyle(
-              color: KPrimeryColor1,
-              fontWeight: FontWeight.bold,
-              fontFamily: KFont2,
-              fontSize: 24,
-              letterSpacing: 1),
-        ),
+        title: Text(AppLocalizations.of(context)!.security,
+            style: TextStyle(
+                color: KPrimeryColor1,
+                fontWeight: FontWeight.bold,
+                fontSize: MediaQuery.of(context).size.aspectRatio * 55,
+                letterSpacing: MediaQuery.of(context).size.width * .002)),
       ),
       body: Column(
         children: [
           infoCustom(
-            text: 'البريد اللإلكتروني',
+            icons: Icon(Icons.email_outlined),
+            text: AppLocalizations.of(context)!.emailAdress,
             pass_em: 'taim@gmail.com',
             onpress: () {
               GoRouter.of(context).push(AppRouter.KemailChange);
@@ -48,7 +46,8 @@ class Security_View extends StatelessWidget {
             height: MediaQuery.of(context).size.height * .02,
           ),
           infoCustom(
-            text: 'كلمة السر',
+            icons: Icon(Icons.password),
+            text: AppLocalizations.of(context)!.password,
             pass_em: 'taim_la',
             onpress: () {
               GoRouter.of(context).push(AppRouter.Kpasschnage);
@@ -62,59 +61,73 @@ class Security_View extends StatelessWidget {
 
 class infoCustom extends StatelessWidget {
   infoCustom(
-      {required this.text, required this.pass_em, required this.onpress});
+      {required this.text,
+      required this.pass_em,
+      required this.onpress,
+      required this.icons});
   String? text;
   String? pass_em;
   VoidCallback? onpress;
+  Icon? icons;
   @override
   Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SizedBox(
-          height: MediaQuery.of(context).size.height * .015,
+          height: MediaQuery.of(context).size.height * .03,
         ),
         Padding(
-          padding: const EdgeInsets.only(right: 24),
+          padding: EdgeInsets.only(
+            left: MediaQuery.of(context).size.width * .05,
+            right: MediaQuery.of(context).size.width * .05,
+          ),
           child: Text(
             '$text',
             style: TextStyle(
-                fontWeight: FontWeight.w500,
-                color: KPrimeryColor1,
-                fontFamily: KFont2,
-                fontSize: 18),
+              fontWeight: FontWeight.w500,
+              color: KPrimeryColor1,
+              fontSize: MediaQuery.of(context).size.aspectRatio * 42,
+            ),
           ),
         ),
         SizedBox(
           height: MediaQuery.of(context).size.height * .002,
         ),
         Padding(
-          padding: const EdgeInsets.only(right: 12),
+          padding: EdgeInsets.only(
+            left: MediaQuery.of(context).size.width * .03,
+            right: MediaQuery.of(context).size.width * .03,
+          ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              IconButton(
-                  onPressed: onpress,
-                  icon: Icon(
-                    Icons.edit,
-                    color: KPrimeryColor1,
-                    size: 28,
-                  )),
-              SizedBox(
-                width: MediaQuery.of(context).size.width * .02,
-              ),
               Container(
                 child: Padding(
-                  padding: const EdgeInsets.only(top: 18, right: 12),
-                  child: Text(
-                    '$pass_em',
-                    textAlign: TextAlign.right,
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black45),
-                  ),
-                ),
+                    padding: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height * .01,
+                      left: MediaQuery.of(context).size.width * .01,
+                      right: MediaQuery.of(context).size.width * .01,
+                    ),
+                    child: TextFormField(
+                      enabled: false,
+                      showCursor: false,
+                      readOnly: true,
+                      decoration: InputDecoration(
+                        prefixIcon: icons,
+                        prefixIconColor: Colors.grey,
+                        border: InputBorder.none,
+                        hintText: '$pass_em',
+                        hintStyle: TextStyle(
+                            fontSize:
+                                MediaQuery.of(context).size.aspectRatio * 37,
+                            fontFamily: KFont3,
+                            letterSpacing:
+                                MediaQuery.of(context).size.width * .002,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black45),
+                      ),
+                    )),
                 decoration: BoxDecoration(
                   boxShadow: [
                     BoxShadow(
@@ -125,11 +138,21 @@ class infoCustom extends StatelessWidget {
                   borderRadius: BorderRadius.circular(12),
                   border:
                       Border.all(color: Colors.grey.withOpacity(.5), width: 2),
-                  color: KPrimeryColor2,
+                  color: KPrimeryColor5,
                 ),
                 height: MediaQuery.of(context).size.height * .08,
                 width: MediaQuery.of(context).size.width * .8,
               ),
+              SizedBox(
+                width: MediaQuery.of(context).size.width * .02,
+              ),
+              IconButton(
+                  onPressed: onpress,
+                  icon: Icon(
+                    Icons.edit,
+                    color: KPrimeryColor1,
+                    size: MediaQuery.of(context).size.aspectRatio * 60,
+                  )),
             ],
           ),
         ),

@@ -13,11 +13,12 @@ class CircleImageCustom extends StatelessWidget {
       // GoRouter.of(context).push(AppRouter.KLoginPage);
       onTap: ontap,
       child: CircleAvatar(
-        radius: 39,
-        backgroundColor: KPrimeryColor3,
+        foregroundColor: KPrimeryColor4,
+        radius: MediaQuery.of(context).size.aspectRatio * 74,
+        backgroundColor: KPrimeryColor4,
         child: CircleAvatar(
           backgroundImage: image,
-          radius: 37,
+          radius: MediaQuery.of(context).size.aspectRatio * 72,
         ),
       ),
     );

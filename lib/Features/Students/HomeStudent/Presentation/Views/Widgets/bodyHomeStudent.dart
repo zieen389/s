@@ -21,12 +21,12 @@ class BodyStudent extends StatefulWidget {
 
 class _BodyStudentState extends State<BodyStudent> {
   static List<Widget> widgetOptions = [
-    ChatViwe(),
+    PostsPageView(),
     Home(),
     StudentAccountView(),
-    PostsPageView(),
+    ChatViwe(),
   ];
-  int selectedindex = 3;
+  int selectedindex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,58 +34,61 @@ class _BodyStudentState extends State<BodyStudent> {
         child: widgetOptions.elementAt(selectedindex),
       ),
       bottomNavigationBar: Container(
-        color: KPrimeryColor2,
+        color: KPrimeryColor5,
         child: Container(
           child: GNav(
             textStyle: TextStyle(
-                fontFamily: KFont2,
-                color: KPrimeryColor2,
-                fontSize: 14,
+                color: KPrimeryColor5,
+                fontSize: MediaQuery.of(context).size.aspectRatio * 30,
                 fontWeight: FontWeight.bold),
             tabBackgroundGradient:
-                LinearGradient(begin: Alignment.topLeft, colors: [
-              Color(0xFFEC5D31),
-              Color(0xFFFEC163),
-              //Color(0xFFF98222),
-              //Color(0xFFF7AD3F),
+                LinearGradient(begin: Alignment.bottomLeft, colors: [
+              Color(0xFFE3C5E4),
+              Color(0xFFCD6FD0),
+              Color(0xFF9B71D2),
+              Color(0xFF9B71D2),
             ]),
-            backgroundColor: KPrimeryColor2,
-            tabMargin: EdgeInsets.symmetric(horizontal: 2, vertical: 8),
+            backgroundColor: KPrimeryColor5,
+            tabMargin: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * .001,
+              vertical: MediaQuery.of(context).size.height * .005,
+            ),
             onTabChange: (val) {
               setState(() {
                 selectedindex = val;
               });
             },
             selectedIndex: selectedindex,
-            hoverColor: KPrimeryColor2,
+            hoverColor: KPrimeryColor5,
             haptic: true,
-            // tabBorderRadius: 100,
-            //tabActiveBorder: Border.all(color: Colors.black45, width: .8),
             curve: Curves.easeOutExpo,
             duration: Duration(milliseconds: 200),
-            gap: 8,
+            gap: MediaQuery.of(context).size.width * .03,
             color: Colors.black45,
-            activeColor: KPrimeryColor2,
-            iconSize: 22,
-            padding: EdgeInsets.symmetric(horizontal: 28, vertical: 12),
+            activeColor: KPrimeryColor5,
+            iconSize: MediaQuery.of(context).size.aspectRatio * 45,
+            padding: EdgeInsets.symmetric(
+              horizontal: MediaQuery.of(context).size.width * .05,
+              vertical: MediaQuery.of(context).size.height * .0137,
+            ),
             tabs: [
               GButton(
-                gap: 16,
-                icon: FontAwesomeIcons.comments,
-                text: AppLocalizations.of(context)!.chat,
+                icon: FontAwesomeIcons.newspaper,
+                text: AppLocalizations.of(context)!.post,
               ),
               GButton(
                 icon: Icons.contact_support,
                 text: AppLocalizations.of(context)!.service,
               ),
               GButton(
-                iconSize: 26,
+                iconSize: MediaQuery.of(context).size.aspectRatio * 55,
                 icon: LineIcons.user,
                 text: AppLocalizations.of(context)!.myaccount,
               ),
               GButton(
-                icon: FontAwesomeIcons.newspaper,
-                text: AppLocalizations.of(context)!.post,
+                gap: MediaQuery.of(context).size.width * .05,
+                icon: FontAwesomeIcons.comments,
+                text: AppLocalizations.of(context)!.chat,
               ),
             ],
           ),
