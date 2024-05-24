@@ -37,9 +37,8 @@ class _WeekprogState extends State<Weekprog> {
       " لعربي",
       "اانسةي",
     ];
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
+      
           appBar: AppBar(
             leading: IconButton(
                 onPressed: () {
@@ -65,8 +64,7 @@ class _WeekprogState extends State<Weekprog> {
                         padding: const EdgeInsets.only(left: 3),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            fixedSize: Size(40, 70),
-                            primary: getButtonColor(0),
+                            fixedSize: Size(40, 70), backgroundColor: getButtonColor(0),
                           ),
                           onPressed: () {
                             setState(() {
@@ -87,8 +85,7 @@ class _WeekprogState extends State<Weekprog> {
                         padding: const EdgeInsets.only(left: 3),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            fixedSize: Size(40, 70),
-                            primary: getButtonColor(1),
+                            fixedSize: Size(40, 70), backgroundColor: getButtonColor(1),
                             textStyle: TextStyle(
                               fontSize: 10,
                               color: KPrimeryColor2,
@@ -114,8 +111,7 @@ class _WeekprogState extends State<Weekprog> {
                         padding: const EdgeInsets.only(left: 3),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            fixedSize: Size(40, 70),
-                            primary: getButtonColor(2),
+                            fixedSize: Size(40, 70), backgroundColor: getButtonColor(2),
                             textStyle: TextStyle(
                               fontSize: 10,
                               color: KPrimeryColor2,
@@ -141,8 +137,7 @@ class _WeekprogState extends State<Weekprog> {
                         padding: const EdgeInsets.only(left: 3),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            fixedSize: Size(40, 70),
-                            primary: getButtonColor(3),
+                            fixedSize: Size(40, 70), backgroundColor: getButtonColor(3),
                             textStyle: TextStyle(
                               fontSize: 10,
                               color: KPrimeryColor2,
@@ -169,8 +164,7 @@ class _WeekprogState extends State<Weekprog> {
                         padding: const EdgeInsets.only(left: 3),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            fixedSize: Size(40, 70),
-                            primary: getButtonColor(4),
+                            fixedSize: Size(40, 70), backgroundColor: getButtonColor(4),
                             textStyle: TextStyle(
                               fontSize: 10,
                               color: KPrimeryColor2,
@@ -482,8 +476,8 @@ class _WeekprogState extends State<Weekprog> {
                 )
               ],
             ),
-          )),
-    );
+          ))
+    ;
   }
 }
 

@@ -52,6 +52,7 @@ dependencies:
   pie_chart: ^5.4.0
   flutter_gradient_app_bar: ^0.3.1
   smooth_page_indicator: ^1.1.0
+  flutter_calendar_carousel: ^2.4.3
 
 dev_dependencies:
   flutter_test:

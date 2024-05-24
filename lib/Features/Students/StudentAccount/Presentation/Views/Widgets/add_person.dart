@@ -394,9 +394,8 @@ class _addState extends State<add> {
                         style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(20.0),
-                            ),
+                            ), backgroundColor: KPrimeryColor3,
                             fixedSize: Size(150, 40),
-                            primary: KPrimeryColor3,
                             textStyle: TextStyle(fontSize: 20)),
                         onPressed: () {
                           if (_isTextField1Valid &&

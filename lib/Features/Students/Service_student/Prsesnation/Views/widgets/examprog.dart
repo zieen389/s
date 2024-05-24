@@ -13,9 +13,7 @@ class Examprog extends StatefulWidget {
 class _ExamprogState extends State<Examprog> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return  Scaffold(
           backgroundColor: KPrimeryColor2,
           appBar: AppBar(
             leading: IconButton(
@@ -105,7 +103,7 @@ class _ExamprogState extends State<Examprog> {
                 width: MediaQuery.of(context).size.width * .95,
               )
             ],
-          )),
+          )
     );
   }
 }

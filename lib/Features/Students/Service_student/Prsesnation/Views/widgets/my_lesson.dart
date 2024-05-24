@@ -10,8 +10,8 @@ class Lesson extends StatefulWidget {
 class _LessonState extends State<Lesson> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(),
+    return 
+       Scaffold(
     );
   }
 }

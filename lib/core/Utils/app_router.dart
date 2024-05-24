@@ -7,6 +7,10 @@ import 'package:myshop/Features/Students/HomeStudent/Presentation/Views/HomeStud
 import 'package:myshop/Features/Students/LoginStudent/Presentation/Views/Widgets/Splash_Dialog.dart';
 import 'package:myshop/Features/Students/LoginStudent/Presentation/Views/loginPageStudent.dart';
 import 'package:myshop/Features/Splash/Presentation/Views/SplashPage.dart';
+import 'package:myshop/Features/Students/Service_student/Prsesnation/Views/widgets/examprog.dart';
+import 'package:myshop/Features/Students/Service_student/Prsesnation/Views/widgets/inschool.dart';
+import 'package:myshop/Features/Students/Service_student/Prsesnation/Views/widgets/marks.dart';
+import 'package:myshop/Features/Students/Service_student/Prsesnation/Views/widgets/my_lesson.dart';
 import 'package:myshop/Features/Students/Service_student/Prsesnation/Views/widgets/note.dart';
 import 'package:myshop/Features/Students/Service_student/Prsesnation/Views/widgets/weekprog.dart';
 import 'package:myshop/Features/Students/StudentAccount/Presentation/Views/StudenAccountPage.dart';
@@ -38,6 +42,13 @@ abstract class AppRouter {
   static const Kaddstudent = '/add';
   static const Klanguage = '/LanguageView';
   static const Kpageview = '/Page_View';
+  static const knote = '/note';
+  static const kinschool = '/inschool';
+  static const kmarkess = '/markess';
+  static const klesson = '/lesson';
+  static const kexamprog = '/examprog';
+  static const weekprg = '/weekprg';
+
   static final router = GoRouter(routes: [
     GoRoute(path: '/', builder: (context, state) => const Page_View()),
     GoRoute(path: KSplashPage, builder: (context, state) => const SplashView()),
@@ -105,6 +116,30 @@ abstract class AppRouter {
     GoRoute(
       path: Kpageview,
       builder: (context, state) => const Page_View(),
+    ),
+     GoRoute(
+      path: knote,
+      builder: (context, state) => const Note(),
+    ),
+     GoRoute(
+      path: kinschool,
+      builder: (context, state) => const Inschool(),
+    ),
+     GoRoute(
+      path: kmarkess,
+      builder: (context, state) => const markss(),
+    ),
+     GoRoute(
+      path: klesson,
+      builder: (context, state) => const Lesson(),
+    ),
+     GoRoute(
+      path: kexamprog,
+      builder: (context, state) => const Examprog(),
+    ),
+     GoRoute(
+      path: kWeekprog,
+      builder: (context, state) => const Weekprog(),
     ),
   ]);
 }

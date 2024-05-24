@@ -88,9 +88,7 @@ class _markssState extends State<markss> {
       _marks.fold(0.0, (sum, mark) => sum + mark.grade) / 10;
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return  Scaffold(
         appBar: AppBar(
           leading: IconButton(
               onPressed: () {
@@ -241,7 +239,7 @@ class _markssState extends State<markss> {
             ),
           ),
         ),
-      ),
+      
     );
   }
 }
